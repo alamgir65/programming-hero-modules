@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Recap</title>
+    <style>
+        form{
+            width: 50%;
+            border: 1px solid gray;
+            padding: 30px;
+            border-radius: 20px;
+        }
+        input,fieldset,button{
+            margin-top: 20px;
+        }
+
+    </style>
+</head>
+<body>
+    <main>
+        <h1>Welcome! to Jamal er mayer Pitha shop</h1>
+
+        <form >
+            <label for="name">Name : </label>
+            <input type="text" name="" id="name">
+            <br>
+            <label for="email">Email : </label>
+            <input type="email" name="" id="email">
+
+            <fieldset>
+                <legend>Pitha selection</legend>
+                
+                <input type="radio" name="pitha" id="chitoy">
+                <label for="chitoy">Chitoy</label>
+
+                <input type="radio" name="pitha" id="vapha">
+                <label for="vapha">Vapha</label>
+
+                <input type="radio" name="pitha" id="puri">
+                <label for="puri">Dal puri</label>
+            </fieldset>
+            <fieldset>
+                <legend>Vorta selection</legend>
+
+                <input type="checkbox" name="vorta" id="sorisha">
+                <label for="sorisha">Sorisha</label>
+
+                <input type="checkbox" name="vorta" id="kalozira">
+                <label for="kalozira">Kalozira</label>
+
+                <input type="checkbox" name="vorta" id="morich">
+                <label for="morich">Greenchili</label>
+
+            </fieldset>
+            <button type="reset">Reset</button>
+            <button type="submit">Submit</button>
+        </form>
+    </main>
+</body>
+</html>
