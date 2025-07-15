@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        .container{
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            /* border: 2px solid gray; */
+        }
+        .calender{
+            display: grid;
+            grid-template-columns: repeat(7,50px);
+            gap: 10px;
+            text-align: center;
+        }
+        .day , .date{
+            height: 50px;
+            border: 1.5px solid palevioletred;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .date{
+            border-radius: 12px 0 ;
+        }
+        .day{
+            border-radius: 5px;
+            border: none;
+            background-color: rgb(234, 157, 183);
+        }
+        .inactive{
+            color: rgb(220, 214, 214);
+        }
+        .header{
+            display: flex;
+            gap: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h3 class="month"><span style="color: red; font-weight: bold;">Bloody</span> July</h3>
+            <h3 class="year">2025</h3>
+        </div>
+        <div class="calender">
+            <div class="day">Sun</div>
+            <div class="day">Mon</div>
+            <div class="day">Tue</div>
+            <div class="day">Wed</div>
+            <div class="day">Thu</div>
+            <div class="day">Fri</div>
+            <div class="day">Sat</div>
+            <div class="date inactive">29</div>
+            <div class="date inactive">30</div>
+            <div class="date">1</div>
+            <div class="date">2</div>
+            <div class="date">3</div>
+            <div class="date">4</div>
+            <div class="date">5</div>
+            <div class="date">6</div>
+            <div class="date">7</div>
+            <div class="date">8</div>
+            <div class="date">9</div>
+            <div class="date">10</div>
+            <div class="date">11</div>
+            <div class="date">12</div>
+            <div class="date">13</div>
+            <div class="date">14</div>
+            <div class="date">15</div>
+            <div class="date">16</div>
+            <div class="date">17</div>
+            <div class="date">18</div>
+            <div class="date">19</div>
+            <div class="date">20</div>
+            <div class="date">21</div>
+            <div class="date">22</div>
+            <div class="date">23</div>
+            <div class="date">24</div>
+            <div class="date">25</div>
+            <div class="date">26</div>
+            <div class="date">27</div>
+            <div class="date">28</div>
+            <div class="date">29</div>
+            <div class="date">30</div>
+            <div class="date">31</div>
+            <div class="date inactive">32</div>
+            <div class="date inactive">33</div>
+            <div class="date inactive">34</div>
+            <div class="date inactive">35</div>
+            <div class="date inactive">36</div>
+            <div class="date inactive">6</div>
+            <div class="date inactive">7</div>
+            <div class="date inactive">8</div>
+            <div class="date inactive">9</div>
+        </div>
+    </div>
+</body>
+</html>
