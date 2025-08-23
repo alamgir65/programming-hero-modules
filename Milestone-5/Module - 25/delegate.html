@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Events Delegate</h1>
+    <ol id="item-list">
+        <li class="item">Awesome list - 1</li>
+        <li class="item">Awesome list - 2</li>
+        <li class="item">Awesome list - 3</li>
+        <li class="item">Awesome list - 4</li>
+        <li class="item">Awesome list - 5</li>
+        <li class="item">Awesome list - 6</li>
+    </ol>
+
+    <button  id="add-item">Add new Item</button>
+
+    <script>
+        const items = document.getElementsByClassName('item');
+        // for(const item of items){
+        //     item.addEventListener('click',function(event){
+        //         event.target.parentNode.removeChild(event.target);
+        //     })
+        // }
+
+        // Assalamualykum dadhu 
+
+        document.getElementById('item-list')
+            .addEventListener('click', function(event){
+                event.target.parentNode.removeChild(event.target);
+            })
+
+        document.getElementById('add-item')
+            .addEventListener('click', function(){
+                const newItem = document.createElement('li');
+                newItem.classList.add('item');
+                newItem.innerText = 'Awesome list - ' + (items.length + 1);
+                document.getElementById('item-list').appendChild(newItem);
+            })
+    </script>
+</body>
+</html>
