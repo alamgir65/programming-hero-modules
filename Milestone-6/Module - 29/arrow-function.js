@@ -8,3 +8,9 @@ const sayHello = (name) => {
     return `Hello, ${name}`;
 }
 console.log(sayHello('Ayat'));
+
+
+
+const obj = { foo: 1 };
+obj.bar = 2;
+console.log(obj)
