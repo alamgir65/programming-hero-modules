@@ -4,10 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
 </head>
-<body>
-    <h1>Here, I'll explore JSON,API</h1>
+<body class="p-5">
+    <h1 class="text-4xl">Here, I'll explore JSON,API</h1>
+
+    <button class="btn btn-primary" onclick="loadData()">Load Data</button>
+
+    <button class="btn btn-secondary" onclick="loadPost()">Load Post</button>
+
+
+    <section class="border-2 border-blue-500 m-5 p-5 rounded-xl grid grid-cols-3" id="post-container">
+        <h1 class="text-xl">My all posts : </h1>
+    </section>
 
     <script src="script.js"></script>
+    <script src="post.js"></script>
 </body>
 </html>
