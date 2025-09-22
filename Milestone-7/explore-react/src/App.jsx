@@ -2,9 +2,17 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import Todo from './Todo'
+import Actor from './Actor'
 
 function App() {
-  const [count, setCount] = useState(0)
+
+  const actors = [
+    {id : 1, name : 'Salman Khan', age : 57},
+    {id : 2, name : 'Sahrukh Khan', age : 57},
+    {id : 3, name : 'Captain Jack Sparo', age : 57},
+    {id : 4, name : 'Pata Kisto', age : 57}
+  ];
 
   return (
     <>
@@ -16,6 +24,19 @@ function App() {
       </div>
       <Student name="Alamgir Hossain" dept="CSE"></Student>
       <Student name="Ayat Rohman" dept="Mathmatics"></Student>
+
+      <div>
+        <h3>Todo List : </h3>
+        <Todo task="Learn React" isDone={true}></Todo>
+        <Todo task="Learn Bussiness Fundamental" isDone={false}></Todo>
+      </div>
+
+      <div>
+        <h4>Actors list : </h4>
+        {
+          actors.map(actor => <Actor key={actor.id} actor={actor}></Actor>)
+        }
+      </div>
     </>
   )
 }
@@ -23,9 +44,9 @@ function App() {
 
 function Student(props) {
   const style = {
-    border : '2px solid white',
-    borderRadius : '10px',
-    marginBottom : '5px'
+    border: '2px solid white',
+    borderRadius: '10px',
+    marginBottom: '5px'
 
   }
   return (
