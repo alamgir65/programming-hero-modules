@@ -11,7 +11,7 @@ const Navbar = () => {
 
     return (
         <nav className='bg-slate-300 flex justify-between items-center px-10 py-3'>
-            <h1 className='text-3xl font-bold'>Alamgir</h1>
+            <h1 className='text-3xl font-bold'>Alamgir 2</h1>
             <ul className='flex gap-8 float-end'>
                 {
                     navLinks.map(link => <li><a className='btn' href="">{link.name}</a></li>)
