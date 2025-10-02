@@ -13,7 +13,7 @@ const Navbar = () => {
         { id: 5, path: "/contact", name: "Contact" },
     ];
 
-    const links = navLinks.map(link => <li><a className='' href="">{link.name}</a></li>);
+    const links = navLinks.map(link => <li key={link.id}><a className='' href="">{link.name}</a></li>);
 
     return (
         <nav className='bg-slate-300 flex justify-between py-3 px-3 md:px-10'>
@@ -26,7 +26,7 @@ const Navbar = () => {
                     ${open ? 'top-16' : '-top-80'}
                     `}>
                     {
-                        navLinks.map(link => <li><a className='hover:bg-indigo-800 px-10 py-2 rounded-lg hover:text-white' href="">{link.name}</a></li>)
+                        navLinks.map(link => <li key={link.id}><a className='hover:bg-indigo-800 px-10 py-2 rounded-lg hover:text-white' href="">{link.name}</a></li>)
                     }
                 </ul>
 
