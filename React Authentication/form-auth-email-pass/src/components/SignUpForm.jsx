@@ -1,22 +1,58 @@
 import { createUserWithEmailAndPassword } from 'firebase/auth';
-import React from 'react';
+import React, { useState } from 'react';
 import { auth } from '../firebase/firebase.init';
+import { IoIosEye, IoIosEyeOff } from 'react-icons/io';
 
 const SignUpForm = () => {
+
+    const [success,setSuccess] = useState(false);
+    const [error,setError] = useState('');
+    const [showPass,setShowPass] = useState(false);
+
 
     const handleRegister = (e) => {
         e.preventDefault();
         // console.log("Register button clicked. ", e.target.email.value);
         const email = e.target.email.value;
         const password = e.target.password.value;
+
+        const passMinLength = /^.{6,}$/;
+        const passUpperLower = /^(?=.*[a-z])(?=.*[A-Z]).+$/;
+        const passSpecialChar = /^(?=.*[!@#$%^&*()_\-+=\[\]{};':"\\|,.<>\/?`~]).+$/;
+
+
+        if(!passMinLength.test(password)){
+            setError('Password must be minimum 6 character.');
+            return;
+        }
+        else if(!passUpperLower.test(password)){
+            setError('Password must be consists a Uppercase & lowercase letter.');
+            return;
+        }else if(!passSpecialChar.test(password)){
+            setError('Password must be consists a Special character.')
+            return;
+        }
+
+        setSuccess(false);
+        setError('');
+
         createUserWithEmailAndPassword(auth,email,password)
             .then(res => {
                 console.log('User, ', res.user);
+                setSuccess(true);
             })
             .catch(err => {
                 console.log(err);
+                setError(err.message);
             })
     }
+
+
+    const handleShowPass = (e) => {
+        e.preventDefault();
+        setShowPass(!showPass);
+    }
+
     return (
         <form onSubmit={handleRegister}>
             <div className="hero bg-base-200 min-h-screen">
@@ -30,8 +66,25 @@ const SignUpForm = () => {
                                 <label className="label">Email</label>
                                 <input type="email" name='email' className="input" placeholder="Email" />
                                 <label className="label">Password</label>
-                                <input type="password" name='password' className="input" placeholder="Password" />
+
+                                <div className='relative'>
+                                    <input 
+                                    type={showPass? 'text' : 'password'}
+                                    name='password' className="input" placeholder="Password" />
+                                    <button className="btn btn-xs absolute top-2 right-6" onClick={handleShowPass}>
+                                        {
+                                            showPass? <IoIosEyeOff></IoIosEyeOff> : <IoIosEye></IoIosEye>
+                                        }
+                                    </button>
+                                </div>
+
                                 <div><a className="link link-hover">Forgot password?</a></div>
+                                {
+                                    error && <p className='text-red-600'>{error}</p>
+                                }
+                                {
+                                    success && <p className='text-green-600'>User Created Successfully.</p>
+                                }
                                 <button className="btn btn-neutral mt-4">Register</button>
                             </fieldset>
                         </div>
