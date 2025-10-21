@@ -1,11 +1,14 @@
 import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
-import React, { useState } from 'react';
+import React, { use, useState } from 'react';
 import { NavLink } from 'react-router';
 import { auth } from '../firebase/firebase.init';
+import { AuthContext } from '../Context/AuthContext/AuthContext';
 
 const Register = () => {
     const [error,setError] = useState('');
     const [success,setSuccess] = useState('');
+
+    const {createUser} = use(AuthContext);
 
     const registerHandler = (e) => {
         e.preventDefault();
@@ -18,7 +21,7 @@ const Register = () => {
             displayName : name
         };
 
-        createUserWithEmailAndPassword(auth,email,password)
+        createUser(email,password)
             .then(res => {
                 console.log(res.user);
 

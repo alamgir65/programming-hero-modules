@@ -1,14 +1,23 @@
-import React from 'react';
+import React, { use } from 'react';
 import { NavLink } from 'react-router';
+import { AuthContext } from '../Context/AuthContext/AuthContext';
 
 const Login = () => {
+
+    const {signInUser} = use(AuthContext);
 
     const loginHandler = (e) => {
         e.preventDefault();
         const email = e.target.email.value;
         const password = e.target.password.value;
 
-        
+        signInUser(email,password)
+            .then(res => {
+                console.log('From Login... ',res.user);
+            })
+            .catch(err => {
+                console.log(err);
+            })
     }
 
     return (
